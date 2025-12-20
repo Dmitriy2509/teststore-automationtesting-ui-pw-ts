@@ -1,13 +1,12 @@
 {
   "name": "ui",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {},
   "keywords": [],
-  "author": "",
+  "author": "Dmytro",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
+  "description": "UI tests for teststore.automationtesting",
+  "dependencies": {
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.3"
   }
