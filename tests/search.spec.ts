@@ -18,10 +18,10 @@ test(
       await searchResultPage.waitForLoadingSearchResultPage();
     });
 
-    const listProductTitles =
-      await searchResultPage.productTitle.allInnerTexts();
-
     await test.step("Verify that all product titles contain the search term", async () => {
+      const listProductTitles =
+        await searchResultPage.productTitle.allInnerTexts();
+
       for (const title of listProductTitles) {
         expect(title.toLowerCase()).toContain(SearchData.searchProductRequest);
       }
@@ -32,7 +32,7 @@ test(
 test(
   "TC-0003 Search test with no results",
   { tag: ["@regression", "@searchTest"] },
-  async ({ mainPage, searchResultPage, page }) => {
+  async ({ mainPage, searchResultPage }) => {
     await test.step("Navigate to main page", async () => {
       await mainPage.navigateToMainPage();
     });
@@ -48,8 +48,8 @@ test(
     const noResultMessage = await searchResultPage.productsArea.innerText();
 
     test.step("Verify that the no results message is displayed", async () => {
-        expect(noResultMessage).toContain(SearchData.noMatchesMessage);
-        expect(noResultMessage).toContain(SearchData.tryOtherKeywordsMessage);
+      expect(noResultMessage).toContain(SearchData.noMatchesMessage);
+      expect(noResultMessage).toContain(SearchData.tryOtherKeywordsMessage);
     });
   }
 );

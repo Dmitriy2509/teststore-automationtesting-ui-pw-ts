@@ -8,6 +8,10 @@ export class MainPage extends BasePage {
     ".ui-autocomplete-input"
   );
 
+  async getMenuLink(menuName: string) {
+    return this.page.locator(`//a[contains(normalize-space(.), '${menuName}')]`);
+  }
+
   async navigateToMainPage() {
     await this.page.goto("");
   }
@@ -21,4 +25,9 @@ export class MainPage extends BasePage {
     await this.searchFieldInput.fill(productName);
     await this.searchFieldInput.press("Enter");
   }
+
+  async clickMenuLink(menuName: string) {
+    await (await this.getMenuLink(menuName)).click();
+  }
+
 }
