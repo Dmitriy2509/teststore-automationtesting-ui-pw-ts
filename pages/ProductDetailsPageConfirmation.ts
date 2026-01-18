@@ -7,7 +7,7 @@ export class ProductDetailsPageConfirmation extends BasePage {
   );
 
   async clickProceedToCheckoutBtn() {
-    await this.proceedToCheckoutBtn.click();
+    await this.proceedToCheckoutBtn.click({force: true});
     await this.page.locator("#_desktop_cart").click();
   }
 }
