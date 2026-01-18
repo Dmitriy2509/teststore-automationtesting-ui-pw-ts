@@ -7,7 +7,7 @@ export class ProductDetailsPageConfirmation extends BasePage {
   );
 
   async clickProceedToCheckoutBtn() {
-    const promise = this.page.waitForResponse("**/index.php?controller=cart");
+    const promise = this.page.waitForResponse("**/index.php?fc=module&module=ps_shoppingcart&controller=ajax");
     const response = await promise;
     expect(response.status()).toBe(200);
     await this.proceedToCheckoutBtn.click();
