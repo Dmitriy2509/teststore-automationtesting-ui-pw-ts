@@ -7,6 +7,6 @@ export class ProductDetailsPageConfirmation extends BasePage {
   );
 
   async clickCloseModalIcon() {
-    await this.closeModalIcon.click({force: true});
+    await this.closeModalIcon.click();
   }
 }
