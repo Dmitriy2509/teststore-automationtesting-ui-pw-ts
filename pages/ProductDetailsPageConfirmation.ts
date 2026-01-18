@@ -8,7 +8,7 @@ export class ProductDetailsPageConfirmation extends BasePage {
   );
 
   async clickProceedToCheckoutBtn() {
-    await this.confirmationForm.waitFor();
+    await this.confirmationForm.waitFor({ state: 'attached' });
     await this.proceedToCheckoutBtn.click();
   }
 }
