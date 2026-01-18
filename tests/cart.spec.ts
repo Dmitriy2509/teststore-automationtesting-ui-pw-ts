@@ -10,7 +10,7 @@ test(
     mainPage,
     productDetailsPage,
     productDetailsPageConfirmation,
-    cartPage,
+    cartPage
   }) => {
     const increaseProductQuantity = 2;
     const quantityItems = "3 items";
