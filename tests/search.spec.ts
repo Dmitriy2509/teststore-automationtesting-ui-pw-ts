@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test";
 import { test } from "../fixtures/fixtures";
 import { SearchData } from "../data/SearchData";
-import { ToastMessages } from "../data/ToastMessages";
+import { MessagesData } from "../data/MessagesData";
 import { WishIconStatus } from "../data/WishIconStatus";
 
 test(
@@ -91,7 +91,7 @@ test(
 
     await test.step("Verify toast message", async () => {
       await expect(searchResultPage.toastMessage).toHaveText(
-        ToastMessages.addedToWishListMessage
+        MessagesData.addedToWishListMessage
       );
     });
 
