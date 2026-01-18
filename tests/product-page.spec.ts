@@ -3,14 +3,9 @@ import { ProductTitleData } from "../data/ProductTitleData";
 import { test } from "../fixtures/fixtures";
 
 test(
-  "TC-0005 Add item to cart verify request is 200",
+  "TC-0006 Add item to cart verify request is 200",
   { tag: ["@regression", "@itemToCart"] },
-  async ({
-    logIn,
-    mainPage,
-    productDetailsPage,
-    page
-  }) => {
+  async ({ logIn, mainPage, productDetailsPage, page }) => {
     await test.step("Navigate to main page", async () => {
       await mainPage.navigateToMainPage();
     });
@@ -25,8 +20,8 @@ test(
     });
 
     await test.step("Verify that the add to cart request is successful (200)", async () => {
-        const response = await promise;
-        expect(response.status()).toBe(200);
-    }); 
+      const response = await promise;
+      expect(response.status()).toBe(200);
+    });
   }
 );
