@@ -12,6 +12,10 @@ export class MainPage extends BasePage {
     return this.page.locator(`//a[contains(normalize-space(.), '${menuName}')]`);
   }
 
+  async getItemByTitle(itemName: string) {
+    return this.page.locator(`//*[contains(@class, "featured-products")]//*[text()='${itemName}']`);
+  }
+
   async navigateToMainPage() {
     await this.page.goto("");
   }
@@ -28,6 +32,10 @@ export class MainPage extends BasePage {
 
   async clickMenuLink(menuName: string) {
     await (await this.getMenuLink(menuName)).click();
+  }
+
+  async clickItemByTitle(itemName: string) {
+    await (await this.getItemByTitle(itemName)).click();
   }
 
 }

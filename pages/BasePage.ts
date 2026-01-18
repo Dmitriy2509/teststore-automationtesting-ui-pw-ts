@@ -6,4 +6,9 @@ export abstract class BasePage {
   constructor(page: Page) {
     this.page = page;
   }
+
+  async waitForLoadingPage() {
+    await this.page.waitForLoadState("load");
+    await this.page.waitForLoadState("domcontentloaded");
+  }
 }

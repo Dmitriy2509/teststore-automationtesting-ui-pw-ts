@@ -4,6 +4,7 @@ import { MainPage } from "../pages/MainPage";
 import { SearchResultPage } from "../pages/SearchResultPage";
 import { FilterByPage } from "../pages/FilterByPage";
 import { ClothesPage } from "../pages/ClothesPage";
+import { ProductDetailsPage } from "../pages/ProductDetailsPage";
 
 type Fixtures = {
   mainPage: MainPage;
@@ -13,6 +14,7 @@ type Fixtures = {
   clothesPage: ClothesPage;
   logIn: MainPage;
   removeItemFromWishlist: APIResponse;
+  productDetailsPage: ProductDetailsPage;
 };
 
 export const test = base.extend<Fixtures>({
@@ -79,5 +81,10 @@ export const test = base.extend<Fixtures>({
         expect(deleteResponse.status()).toBe(200);
 
         await use(deleteResponse);
+  },
+
+  productDetailsPage: async ({page}, use) =>{
+    const productDetailsPage = new ProductDetailsPage(page);
+    await use(productDetailsPage);
   }
 });
