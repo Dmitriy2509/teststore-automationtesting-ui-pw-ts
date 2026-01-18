@@ -27,8 +27,13 @@ test(
     await test.step("Add item to cart", async () => {
       await productDetailsPage.clickAddToCartBtn();
     });
-    await test.step("Proceed to checkout", async () => {
-      await productDetailsPageConfirmation.clickProceedToCheckoutBtn();
+
+    await test.step("Click close modal icon", async () => {
+      await productDetailsPageConfirmation.clickCloseModalIcon();
+    });
+
+    await test.step("Click cart icon to navigate to cart page", async () => {
+      await mainPage.clickCartIcon();
     });
 
     await test.step("Increase product quantity in cart", async () => {

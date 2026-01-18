@@ -1,12 +1,12 @@
-import { expect, Locator } from "@playwright/test";
+import { Locator } from "@playwright/test";
 import { BasePage } from "./BasePage";
 
 export class ProductDetailsPageConfirmation extends BasePage {
-  readonly proceedToCheckoutBtn: Locator = this.page.locator(
-    ".cart-content-btn .btn-primary"
+  readonly closeModalIcon: Locator = this.page.locator(
+    '//*[@id="blockcart-modal"]//*[@aria-label="Close"]'
   );
 
-  async clickProceedToCheckoutBtn() {
-    await this.proceedToCheckoutBtn.click();
+  async clickCloseModalIcon() {
+    await this.closeModalIcon.click();
   }
 }
