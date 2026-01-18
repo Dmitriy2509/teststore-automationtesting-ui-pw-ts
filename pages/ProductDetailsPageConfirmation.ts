@@ -1,4 +1,4 @@
-import { Locator } from "@playwright/test";
+import { expect, Locator } from "@playwright/test";
 import { BasePage } from "./BasePage";
 
 export class ProductDetailsPageConfirmation extends BasePage {
@@ -7,6 +7,9 @@ export class ProductDetailsPageConfirmation extends BasePage {
   );
 
   async clickProceedToCheckoutBtn() {
+    const promise = this.page.waitForResponse("**/index.php?controller=cart");
     await this.proceedToCheckoutBtn.click();
+    const response = await promise;
+    expect(response.status()).toBe(200);
   }
 }
