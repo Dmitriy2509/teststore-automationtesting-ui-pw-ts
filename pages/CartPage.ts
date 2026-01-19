@@ -5,10 +5,15 @@ export class CartPage extends BasePage {
     ".input-group-btn-vertical .bootstrap-touchspin-up"
   );
   readonly orderDetails = this.page.locator(".cart-detailed-subtotals");
+  readonly proceedToCheckoutBtn = this.page.locator(".cart-detailed-actions .btn-primary");
 
   async increaseProductQuantity(increaseProductQuantity: number) {
     for (let i = 0; i < increaseProductQuantity; i++) {
       await this.increaseQuantityBtn.click();
     }
+  }
+
+  async clickProceedToCheckoutBtn() {
+    await this.proceedToCheckoutBtn.click();
   }
 }

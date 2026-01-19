@@ -1,21 +1,17 @@
-import { expect } from "@playwright/test";
 import { ProductTitleData } from "../data/ProductTitleData";
 import { test } from "../fixtures/fixtures";
 
 test(
-  "TC-0007 Edit quantity of items in cart",
-  { tag: ["@regression", "@editCountItemCart"] },
+  "TC-0008 order",
+  { tag: ["@regression", "@order"] },
   async ({
     logIn,
     mainPage,
     productDetailsPage,
     productDetailsPageConfirmation,
     cartPage,
+    confirmOrderPage
   }) => {
-    const increaseProductQuantity = 2;
-    const quantityItems = "3 items";
-    const price = "$35.70";
-
     await test.step("Navigate to main page", async () => {
       await mainPage.navigateToMainPage();
     });
@@ -36,13 +32,8 @@ test(
       await mainPage.clickCartIcon();
     });
 
-    await test.step("Increase product quantity in cart", async () => {
-      await cartPage.increaseProductQuantity(increaseProductQuantity);
-    });
+    // await cartPage.clickProceedToCheckoutBtn();
 
-    await test.step("Verify updated quantity and price in cart", async () => {
-      await expect(cartPage.orderDetails).toContainText(quantityItems);
-      await expect(cartPage.orderDetails).toContainText(price);
-    });
+    // await confirmOrderPage.clickDeleteAddressBtn();
   }
 );
