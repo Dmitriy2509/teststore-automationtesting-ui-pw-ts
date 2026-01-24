@@ -4,8 +4,9 @@ import { SearchData } from "../data/SearchData";
 import { MessagesData } from "../data/MessagesData";
 import { WishIconStatus } from "../data/WishIconStatus";
 
+for(let searchRequest of SearchData.listSearchProductRequest) {
 test(
-  "TC-0002 Search test",
+  "TC-0002 Search test with results for: " + searchRequest,
   { tag: ["@regression", "@smoke", "@searchTest"] },
   async ({ mainPage, searchResultPage }) => {
     await test.step("Navigate to main page", async () => {
@@ -13,7 +14,7 @@ test(
     });
 
     await test.step("Search for a product", async () => {
-      await mainPage.searchProduct(SearchData.searchProductRequest);
+      await mainPage.searchProduct(searchRequest);
     });
 
     await test.step("Wait for search results to load", async () => {
@@ -25,11 +26,12 @@ test(
         await searchResultPage.productTitle.allInnerTexts();
 
       for (const title of listProductTitles) {
-        expect(title.toLowerCase()).toContain(SearchData.searchProductRequest);
+        expect(title.toLowerCase()).toContain(searchRequest.toLocaleLowerCase());
       }
     });
   }
 );
+}
 
 test(
   "TC-0003 Search test with no results",
@@ -65,7 +67,7 @@ test(
     });
 
     await test.step("Search for a product", async () => {
-      await mainPage.searchProduct(SearchData.searchProductRequest);
+      await mainPage.searchProduct(SearchData.searchRequest);
     });
 
     await test.step("Wait for search results to load", async () => {
