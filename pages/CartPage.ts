@@ -8,12 +8,14 @@ export class CartPage extends BasePage {
   readonly proceedToCheckoutBtn = this.page.locator(".cart-detailed-actions .btn-primary");
 
   async increaseProductQuantity(increaseProductQuantity: number) {
+    await this.waitForLoadingPage();
     for (let i = 0; i < increaseProductQuantity; i++) {
       await this.increaseQuantityBtn.click();
     }
   }
 
   async clickProceedToCheckoutBtn() {
+    await this.waitForLoadingPage();
     await this.proceedToCheckoutBtn.click();
   }
 }
