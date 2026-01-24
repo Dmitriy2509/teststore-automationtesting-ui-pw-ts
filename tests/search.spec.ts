@@ -4,7 +4,7 @@ import { SearchData } from "../data/SearchData";
 import { MessagesData } from "../data/MessagesData";
 import { WishIconStatus } from "../data/WishIconStatus";
 
-for(let searchRequest of SearchData.searchProductRequest) {
+for(let searchRequest of SearchData.listSearchProductRequest) {
 test(
   "TC-0002 Search test with results for: " + searchRequest,
   { tag: ["@regression", "@smoke", "@searchTest"] },
@@ -67,7 +67,7 @@ test(
     });
 
     await test.step("Search for a product", async () => {
-      await mainPage.searchProduct(SearchData.searchProductRequest);
+      await mainPage.searchProduct(SearchData.searchRequest);
     });
 
     await test.step("Wait for search results to load", async () => {

@@ -1,7 +1,8 @@
 export class SearchData {
   //search requests
-  static readonly searchProductRequest = ["mug", "T-Shirt"];
+  static readonly listSearchProductRequest = ["mug", "T-Shirt"];
   static readonly noMatchesSearchProductRequest = "12";
+  static readonly searchRequest = this.listSearchProductRequest[0];
 
   //search messages
   static readonly noMatchesMessage = "No matches were found for your search";
