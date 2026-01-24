@@ -7,6 +7,7 @@ import { ClothesPage } from "../pages/ClothesPage";
 import { ProductDetailsPage } from "../pages/ProductDetailsPage";
 import { ProductDetailsPageConfirmation } from "../pages/ProductDetailsPageConfirmation";
 import { CartPage } from "../pages/CartPage";
+import { ConfirmOrderPage } from "../pages/ConfirmOrderPage";
 
 type Fixtures = {
   mainPage: MainPage;
@@ -19,6 +20,7 @@ type Fixtures = {
   productDetailsPage: ProductDetailsPage;
   productDetailsPageConfirmation: ProductDetailsPageConfirmation;
   cartPage: CartPage;
+  confirmOrderPage: ConfirmOrderPage;
 };
 
 export const test = base.extend<Fixtures>({
@@ -105,5 +107,10 @@ export const test = base.extend<Fixtures>({
   cartPage: async ({ page }, use) => {
     const cartPage = new CartPage(page);
     await use(cartPage);
+  },
+
+  confirmOrderPage: async ({ page }, use) => {
+    const confirmOrderPage = new ConfirmOrderPage(page);
+    await use(confirmOrderPage);
   },
 });

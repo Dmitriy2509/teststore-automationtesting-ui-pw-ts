@@ -29,7 +29,7 @@ test(
     });
 
     await test.step("Click close modal icon", async () => {
-      await productDetailsPageConfirmation.clickCloseModalIcon();
+      await productDetailsPageConfirmation.closeModal();
     });
 
     await test.step("Click cart icon to navigate to cart page", async () => {
