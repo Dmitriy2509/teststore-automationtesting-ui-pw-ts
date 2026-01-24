@@ -4,8 +4,8 @@ import { ProductTitleData } from "../data/ProductTitleData";
 import { test } from "../fixtures/fixtures";
 
 test(
-  "TC-0008 confirm order",
-  { tag: ["@regression", "@confirmOrder"] },
+  "TC-0008 submit order",
+  { tag: ["@regression", "@submitOrder"] },
   async ({
     logIn,
     mainPage,
