@@ -1,6 +1,6 @@
 export class SearchData {
   //search requests
-  static readonly searchProductRequest = "mug";
+  static readonly searchProductRequest = ["mug", "T-Shirt"];
   static readonly noMatchesSearchProductRequest = "12";
 
   //search messages
