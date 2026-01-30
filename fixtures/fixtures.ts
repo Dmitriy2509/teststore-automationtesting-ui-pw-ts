@@ -8,6 +8,7 @@ import { ProductDetailsPage } from "../pages/ProductDetailsPage";
 import { ProductDetailsPageConfirmation } from "../pages/ProductDetailsPageConfirmation";
 import { CartPage } from "../pages/CartPage";
 import { ConfirmOrderPage } from "../pages/ConfirmOrderPage";
+import { ContactUsPage } from "../pages/ContactUsPage";
 
 type Fixtures = {
   mainPage: MainPage;
@@ -21,6 +22,7 @@ type Fixtures = {
   productDetailsPageConfirmation: ProductDetailsPageConfirmation;
   cartPage: CartPage;
   confirmOrderPage: ConfirmOrderPage;
+  contactUsPage: ContactUsPage;
 };
 
 export const test = base.extend<Fixtures>({
@@ -113,4 +115,9 @@ export const test = base.extend<Fixtures>({
     const confirmOrderPage = new ConfirmOrderPage(page);
     await use(confirmOrderPage);
   },
+
+  contactUsPage: async ({page}, use)=> {
+    const contactUsPage = new ContactUsPage(page);
+    await use(contactUsPage);
+  }
 });
