@@ -8,6 +8,7 @@ export class MainPage extends BasePage {
     ".ui-autocomplete-input"
   );
   readonly cartIcon: Locator = this.page.locator("#_desktop_cart");
+  readonly contactUsLink: Locator = this.page.locator("#contact-link");
 
   async getMenuLink(menuName: string) {
     return this.page.locator(
@@ -45,5 +46,9 @@ export class MainPage extends BasePage {
 
   async clickCartIcon() {
     await this.cartIcon.click();
+  }
+
+  async clickContactUsLink() {
+    await this.contactUsLink.click();
   }
 }
